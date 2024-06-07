@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main">
+        <div class="p1">Rock Paper Scissors</div>
+        <div class="container">
+            <button class="btn"onclick="appendToDisplay('Rock');"><img src="Rock.png"></button>
+            
+            
+            <button class="btn"onclick="appendToDisplay('Paper');"><img src="Paper.png"></button>
+            
+            
+            <button class="btn"onclick="appendToDisplay('Scissors');"><img src="Scissors.png" alt=""></button>
+        </div>
+        <div class="results">
+            <div class="your-choice">
+                <label class="label">Your Move</label>
+                <input id="yourMove" type="input" placeholder='' readonly>
+            </div>
+            <div class="ai-choice">
+                <label class="label">Computer Mover</label>
+                <input id="aiMove" type="input" placeholder='' readonly>
+            </div>
+            <div class="result">
+                <label class="label">Result</label>
+                <input id="Result" type="input" placeholder='' readonly>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
