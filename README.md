@@ -2,6 +2,7 @@
 My first mini project with JS
 
 
-Created my first project with JS using if/else
+Created rock paper scissors using if/else statementsby directly checking what was the input and comparing with every possible response
+to get the result (Win/Lose/Draw)
 
 Added some media queries for responsiveness 
