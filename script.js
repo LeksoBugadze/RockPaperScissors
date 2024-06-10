@@ -1,8 +1,22 @@
-const displayYourMove=document.getElementById("yourMove");
-const dispalyAiMove=document.getElementById("aiMove");
-const displayResult=document.getElementById("Result");
+const displayYourMove=document.getElementById("playerChoice");
+const dispalyAiMove=document.getElementById("aiChoice");
+const displayResult=document.getElementById("result");
+const displayModal=document.getElementById("modal");
+const displayWins=document.getElementById("wins");
+const displayDraws=document.getElementById("draws");
+const displayLosses=document.getElementById("losses");
 const randomNumber=Math.random();
 
+
+const score=JSON.parse(localStorage.getItem('score'))||{
+    Draws:0,
+    Wins:0,
+    Losses:0
+};
+
+displayDraws.textContent=score.Draws;
+displayLosses.textContent=score.Losses;
+displayWins.textContent=score.Wins;
 
 
 function appendToDisplay(input)
@@ -10,10 +24,23 @@ function appendToDisplay(input)
     const randomNumber=Math.random();
     const aiMove=PCMove(randomNumber);
     const result=Result(input,randomNumber);
-    displayYourMove.value=input;
-    dispalyAiMove.value=aiMove;
-    displayResult.value=result;
-    console.log(result);
+    displayModal.style.display='flex';
+    displayYourMove.textContent=input;
+    console.log(aiMove);
+    dispalyAiMove.textContent=aiMove;
+    displayResult.textContent=result;
+    if(result==='Win'){
+        score.Wins++;
+    }else if(result==='Lose'){
+        score.Losses++;
+    }else score.Draws++;
+
+    
+    displayDraws.textContent=score.Draws;
+    displayLosses.textContent=score.Losses;
+    displayWins.textContent=score.Wins;
+
+    localStorage.setItem('score',JSON.stringify(score));
 }
 
 
@@ -48,12 +75,33 @@ function Result(input,randomNumber){
            return 'Lose';
        }
 
-       if(input==='Scissors'&&PCMove(randomNumber)==='Rock'){
+    if(input==='Scissors'&&PCMove(randomNumber)==='Rock'){
         return 'Lose';
        }else if(input==='Scissors'&&PCMove(randomNumber)==='Paper'){
            return 'Win';
        }else if(input==='Scissors'&&PCMove(randomNumber)==='Scissors'){
            return 'Draw';
        }   
+
+       
+
+    
      
 }
+
+
+const closeModal=()=>{
+    displayModal.style.display='none';
+}
+
+
+function resetScore(){
+       score.Draws=0;
+       score.Wins=0;
+       score.Losses=0;
+       displayDraws.textContent=score.Draws;
+       displayLosses.textContent=score.Losses;
+       displayWins.textContent=score.Wins;
+}
+
+

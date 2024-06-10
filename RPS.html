@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="main">
+    <div class="main"> 
         <div class="p1">Rock Paper Scissors</div>
         <div class="container">
             <button class="btn"onclick="appendToDisplay('Rock');"><img src="Rock.png"></button>
@@ -18,19 +18,32 @@
             
             <button class="btn"onclick="appendToDisplay('Scissors');"><img src="Scissors.png" alt=""></button>
         </div>
-        <div class="results">
-            <div class="your-choice">
-                <label class="label">Your Move</label>
-                <input id="yourMove" type="input" placeholder='' readonly>
+        <div class="modal" id="modal">
+            <div class="box">
+                <div class="you"> 
+                    <div class="text1">Your Move</div>
+                    <div class="your-choice" id="playerChoice"></div>
+                </div>
+                <div class="box-box"> 
+                    <div class="result" id="result"></div>
+                    <button class="retry" onclick="closeModal();">&#10227;</button>
+                </div> 
+                
+                <div class="Computer"> 
+                    <div class="text2">Computer Move</div>
+                    <div class="ai-choice" id="aiChoice"></div>
+                </div>
+                
             </div>
-            <div class="ai-choice">
-                <label class="label">Computer Mover</label>
-                <input id="aiMove" type="input" placeholder='' readonly>
-            </div>
-            <div class="result">
-                <label class="label">Result</label>
-                <input id="Result" type="input" placeholder='' readonly>
-            </div>
+            
+        </div>
+        <div class="score-box">
+            <div class="score" >Wins:<span id="wins"></Wins:span> </div>
+            <div class="score" >Draws:<span id="draws"></span> </div>
+            <div class="score">Losses:<span id="losses"></span></div>
+        </div>
+        <div class="button" onclick="resetScore()">
+            <button class="btn1">Reset Score</button>
         </div>
     </div>
 
